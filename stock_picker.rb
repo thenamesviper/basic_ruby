@@ -20,7 +20,11 @@ def check_for_best array
 			end
 		end
 	end
-	"Your profit will be #{highest_profit} if you choose to buy on DAY #{buy_position+1} and sell on DAY #{sell_position+1}"
+	if highest_profit == 0
+		"It is unwise to purchase any stocks"
+	else
+		"Your profit will be #{highest_profit} if you choose to buy on DAY #{buy_position+1} and sell on DAY #{sell_position+1}"
+	end
 end
 
 stock_values = []
