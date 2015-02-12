@@ -1,4 +1,21 @@
- puts "Enter the phrase you wish to have encrypted via the Caesar Cipher"
+def caesar_shift(plaintext,number_shift)
+	ciphered_text = ""
+	plaintext.each_char do |letter|
+		ascii_value = letter.ord
+		if ascii_value >= 65 && ascii_value <= 90 			#Uppercase letters
+			new_ascii_value = ( ( (ascii_value -65) + number_shift)%26)
+			ciphered_text += (new_ascii_value + 65).chr
+		elsif ascii_value >= 97 && ascii_value <= 122 		#Lowercase letters
+			new_ascii_value = ( ( (ascii_value-97) + number_shift)%26)
+			ciphered_text += (new_ascii_value + 97).chr
+		else
+			ciphered_text += letter
+		end
+	end
+	ciphered_text
+end
+
+puts "Enter the phrase you wish to have encrypted via the Caesar Cipher"
 plaintext = gets.chomp
 until plaintext =~ /[A-Za-z]/    #makes sure at least one letter
 	puts "There were no letters in your selection. Please re-enter phrase"
@@ -13,24 +30,5 @@ while number_shift =~ /\D/ || number_shift.to_i < 1 || number_shift.to_i>25 do  
 	end
 number_shift = number_shift.to_i
 
-
-def caesar_shift(plaintext,number_shift)
-	ciphered_text = ""
-	plaintext.each_char do |letter|
-		ascii_value = letter.ord
-		if ascii_value >= 65 && ascii_value <= 90
-			new_ascii_value = ( ( (ascii_value -65) + number_shift)%26)
-			ciphered_text += (new_ascii_value + 65).chr
-		elsif ascii_value >= 97 && ascii_value <= 122
-			new_ascii_value = ( ( (ascii_value-97) + number_shift)%26)
-			ciphered_text += (new_ascii_value + 97).chr
-		else
-			ciphered_text += letter
-		end
-	end
-	ciphered_text
-end
-
 puts caesar_shift(plaintext, number_shift)
-
 
