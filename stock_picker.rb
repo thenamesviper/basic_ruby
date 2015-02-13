@@ -46,10 +46,10 @@ while new_value.upcase != "END" do
 	
 	stock_values[index_position] = new_value.to_f
 	if index_position == 0
-		puts "Please enter a 2nd value or type 'END'"
+		puts "Please enter a 2nd value"
 		new_value = gets.chomp
 	elsif index_position == 1
-		puts "Please enter a 3rd value or type 'END'"
+		puts "Please enter a 3rd value"
 		new_value = gets.chomp
 	else
 		puts "Please enter a #{index_position + 2}th value or type 'END'"
